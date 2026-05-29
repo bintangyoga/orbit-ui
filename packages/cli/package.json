@@ -1,5 +1,5 @@
 {
-  "name": "orbit-ui",
+  "name": "orbitui",
   "version": "0.1.0",
   "description": "CLI tool for adding orbit-ui components to your React project",
   "main": "dist/index.js",
