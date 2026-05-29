@@ -1,10 +1,10 @@
 {
   "name": "orbit-design",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Beautiful glassmorphic React component library — gradient depth effects, custom themes, copy-paste like shadcn",
   "main": "dist/index.js",
   "bin": {
-    "orbit-ui": "./dist/index.js"
+    "orbit-design": "./dist/index.js"
   },
   "scripts": {
     "build": "tsc",
