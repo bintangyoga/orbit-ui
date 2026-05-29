@@ -53,7 +53,7 @@ export default function ButtonPage() {
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold">Installation</h2>
         <div className="bg-[var(--orbit-muted)] rounded-md p-4 text-sm font-mono">
-          <p>npx orbit-ui add button</p>
+          <p>npx orbit-design add button</p>
         </div>
       </section>
 

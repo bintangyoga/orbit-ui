@@ -1,48 +1,38 @@
-# ✨ orbit-ui
+# orbit-design
 
-A beautiful, glassmorphic React component library CLI — like shadcn/ui, but with gradient glass effects and inner depth.
+Beautiful glassmorphic React component library — gradient depth effects, custom themes, copy-paste like shadcn.
 
+```bash
+npx orbit-design init
+npx orbit-design add button
 ```
-npx orbit-ui init
-npx orbit-ui add button
-```
+
+**Docs:** https://orbitdesign.vercel.app
 
 ## Features
 
-- 🎨 **Glass gradient effects** — signature gradient shine line across components
-- 🔮 **Inner depth** — subtle vertical gradients creating 3D depth perception
-- 🌗 **Dark + Light themes** — beautiful out of the box
-- 🎯 **Fully customizable** — create your own themes with JSON config
-- ⚡ **Tailwind + CVA** — built on class-variance-authority + Tailwind CSS
-- 📦 **Copy-paste model** — you own the code, no locked-in dependencies
-- ♿ **Accessible** — built on Radix UI primitives
+- Glass gradient effects — signature gradient shine line across components
+- Inner depth — subtle vertical gradients creating 3D depth perception
+- Dark + Light themes — beautiful out of the box
+- Fully customizable — create your own themes with JSON config
+- Tailwind + CVA — built on class-variance-authority + Tailwind CSS
+- Copy-paste model — you own the code, no locked-in dependencies
+- Accessible — built on Radix UI primitives
 
 ## Quick Start
 
 ```bash
-# Initialize in your React project
-npx orbit-ui init
-
-# Add components
-npx orbit-ui add button
-
-# Or add all components
-npx orbit-ui add --all
+npx orbit-design init
+npx orbit-design add button
+npx orbit-design add --all
 ```
 
 ## Theme Customization
 
-orbit-ui uses CSS variables for full color customization. Create your own theme:
-
 ```bash
-# Generate a custom theme interactively
-npx orbit-ui theme generate
-
-# Apply a theme
-npx orbit-ui theme apply orbit-theme-my-custom-theme.json
-
-# View current theme variables
-npx orbit-ui theme show
+npx orbit-design theme generate
+npx orbit-design theme apply orbit-theme-my-custom-theme.json
+npx orbit-design theme show
 ```
 
 ### Custom Theme JSON
@@ -77,82 +67,47 @@ npx orbit-ui theme show
 
 ### Gradient Settings
 
-| Property | Description |
-|---|---|
-| `gradient` | Main gradient color |
-| `gradient-highlight` | Lighter version for reflections |
-| `gradient-shadow` | Darker version for depth |
-| `gradient-opacity` | How visible the shine line is (0-1) |
-| `glow-intensity` | Glow shadow strength (0-1) |
-
-### Depth Settings
-
-| Property | Description |
-|---|---|
-| `highlight` | Top highlight color |
-| `highlight-opacity` | Top edge brightness (0-1) |
-| `inner-shadow` | Inner depth darkness (0-1) |
-| `inner-gradient-direction` | Depth gradient direction |
+- **gradient** — main gradient color used for the glass shine line
+- **gradient-highlight** — lighter version for reflections
+- **gradient-shadow** — darker version for depth and glow
+- **gradient-opacity** — visibility of the shine line (0-1)
+- **glow-intensity** — outer glow shadow strength (0-1)
 
 ## Button Variants
 
 ```tsx
 import { Button } from "@/components/orbit-ui/button";
 
-// Default — glass gradient with inner glow
 <Button>Click me</Button>
-
-// Secondary — subtle glass
 <Button variant="secondary">Secondary</Button>
-
-// Outline — bordered glass
 <Button variant="outline">Outline</Button>
-
-// Ghost — invisible until hover
 <Button variant="ghost">Ghost</Button>
-
-// Destructive — red glass gradient
 <Button variant="destructive">Delete</Button>
-
-// Glass — frosted glass effect
 <Button variant="glass">Glass</Button>
-
-// Sizes
-<Button size="sm">Small</Button>
-<Button size="default">Default</Button>
-<Button size="lg">Large</Button>
-<Button size="icon">🔔</Button>
 ```
 
-## Included Presets
+## Included Theme Presets
 
-| Theme | Preview |
-|---|---|
-| `orbit-dark` | Dark with cyan-blue accents |
-| `orbit-light` | Light with blue accents |
-| `ocean-night` | Deep blue with teal accents |
-| `sunset-ember` | Dark warm with orange accents |
-| `emerald-dream` | Dark green with emerald accents |
+- **Orbit Dark** — cyan-blue on dark
+- **Orbit Light** — blue on white
+- **Ocean Night** — teal on deep blue
+- **Sunset Ember** — orange on warm dark
+- **Emerald Dream** — emerald on dark green
 
 ## Architecture
 
 ```
 orbit-ui/
 ├── packages/
-│   └── cli/                    ← CLI tool
-│       └── src/
-│           ├── commands/       ← init, add, list, theme
-│           ├── components/     ← Component registry definitions
-│           ├── registry/       ← Registry resolver
-│           ├── theme.ts        ← Theme system (CSS var generation)
-│           └── config.ts       ← User config schema
-├── templates/                  ← Theme presets (JSON)
-└── package.json
+│   ├── cli/                 ← CLI tool (published as orbit-design on npm)
+│   └── docs/                ← Documentation website (Next.js)
+├── templates/               ← Theme presets (JSON)
+└── README.md
 ```
 
 ## How It Works
 
-Like shadcn/ui, orbit-ui is **not a dependency**. When you run `orbit-ui add button`:
+Like shadcn/ui, orbit-design is **not a dependency**. When you run `orbit-design add button`:
 
 1. Reads your `orbit-ui.json` config
 2. Fetches the component from the registry

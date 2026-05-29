@@ -30,8 +30,8 @@ export default function Home() {
               <span className="text-sm font-medium text-[var(--orbit-foreground)]">Quick Start</span>
             </div>
             <pre className="text-sm text-[var(--orbit-muted-foreground)] bg-[var(--orbit-muted)] rounded-md p-4">
-              <code>{`npx orbit-ui init
-npx orbit-ui add button`}</code>
+              <code>{`npx orbit-design init
+npx orbit-design add button`}</code>
             </pre>
           </div>
         </div>

@@ -114,8 +114,8 @@ export function initCommand(): Command {
         console.log();
         console.log(chalk.gray("  Next steps:"));
         console.log(chalk.gray("  1. Install dependencies:  ") + chalk.cyan("npm install clsx tailwind-merge class-variance-authority"));
-        console.log(chalk.gray("  2. Add components:         ") + chalk.cyan("npx orbit-ui add button"));
-        console.log(chalk.gray("  3. Customize theme:        ") + chalk.cyan("npx orbit-ui theme"));
+        console.log(chalk.gray("  2. Add components:         ") + chalk.cyan("npx orbit-design add button"));
+        console.log(chalk.gray("  3. Customize theme:        ") + chalk.cyan("npx orbit-design theme"));
         console.log();
       } catch (err: any) {
         spinner.fail(chalk.red("Failed to initialize"));

@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
  * A beautiful button with glass gradient effect and inner depth.
  * Fully themeable via CSS variables defined in your orbit theme.
  *
- * @see https://github.com/your-org/orbit-ui
+ * @see https://orbitdesign.vercel.app
  */
 
 const buttonVariants = cva(

@@ -126,7 +126,7 @@ export function themeCommand(): Command {
           await fs.writeJSON(themePath, base, { spaces: 2 });
 
           console.log(chalk.green(`\n✓ Theme saved to ${chalk.cyan(themePath)}`));
-          console.log(chalk.gray("  Apply it with: ") + chalk.cyan(`npx orbit-ui theme apply ${themePath}`));
+          console.log(chalk.gray("  Apply it with: ") + chalk.cyan(`npx orbit-design theme apply ${themePath}`));
           console.log();
         })
     )
@@ -144,7 +144,7 @@ export function themeCommand(): Command {
               config = await fs.readJSON("orbit-ui.json");
             } catch {
               spinner.fail(chalk.red("orbit-ui is not initialized."));
-              console.log(chalk.gray("  Run ") + chalk.cyan("npx orbit-ui init") + chalk.gray(" first."));
+              console.log(chalk.gray("  Run ") + chalk.cyan("npx orbit-design init") + chalk.gray(" first."));
               process.exit(1);
             }
 

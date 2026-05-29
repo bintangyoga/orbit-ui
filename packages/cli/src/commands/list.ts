@@ -26,7 +26,7 @@ export function listCommand(): Command {
 
         console.log();
         console.log(chalk.gray(`  Total: ${items.length} components`));
-        console.log(chalk.gray("  Add a component: ") + chalk.cyan("npx orbit-ui add <name>"));
+        console.log(chalk.gray("  Add a component: ") + chalk.cyan("npx orbit-design add <name>"));
         console.log();
       } catch (err: any) {
         console.error(chalk.red("Failed to load registry:"), err.message);

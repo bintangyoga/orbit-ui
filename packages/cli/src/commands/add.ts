@@ -20,7 +20,7 @@ export function addCommand(): Command {
         config = await fs.readJSON("orbit-ui.json");
       } catch {
         console.error(chalk.red("\n  orbit-ui is not initialized."));
-        console.log(chalk.gray("  Run ") + chalk.cyan("npx orbit-ui init") + chalk.gray(" first.\n"));
+        console.log(chalk.gray("  Run ") + chalk.cyan("npx orbit-design init") + chalk.gray(" first.\n"));
         process.exit(1);
       }
 

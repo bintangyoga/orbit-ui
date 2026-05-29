@@ -1,7 +1,7 @@
 {
   "name": "orbit-design",
-  "version": "0.1.0",
-  "description": "CLI tool for adding orbit-ui components to your React project",
+  "version": "0.1.1",
+  "description": "Beautiful glassmorphic React component library — gradient depth effects, custom themes, copy-paste like shadcn",
   "main": "dist/index.js",
   "bin": {
     "orbit-ui": "./dist/index.js"

@@ -7,7 +7,7 @@ export default function InstallationPage() {
         <div>
           <h2 className="text-xl font-semibold mb-3">1. Initialize</h2>
           <div className="bg-[var(--orbit-muted)] rounded-md p-4 text-sm font-mono">
-            <p>npx orbit-ui init</p>
+            <p>npx orbit-design init</p>
           </div>
           <p className="mt-3 text-sm text-[var(--orbit-muted-foreground)]">
             This creates <code className="bg-[var(--orbit-muted)] px-1.5 py-0.5 rounded text-[var(--orbit-foreground)]">orbit-ui.json</code> in your project root
@@ -25,7 +25,7 @@ export default function InstallationPage() {
         <div>
           <h2 className="text-xl font-semibold mb-3">3. Add components</h2>
           <div className="bg-[var(--orbit-muted)] rounded-md p-4 text-sm font-mono">
-            <p>npx orbit-ui add button</p>
+            <p>npx orbit-design add button</p>
           </div>
           <p className="mt-3 text-sm text-[var(--orbit-muted-foreground)]">
             Components are copied into your project. Modify them however you want.
@@ -35,13 +35,13 @@ export default function InstallationPage() {
         <div>
           <h2 className="text-xl font-semibold mb-3">4. Customize theme</h2>
           <div className="bg-[var(--orbit-muted)] rounded-md p-4 text-sm font-mono">
-            <p>npx orbit-ui theme generate</p>
+            <p>npx orbit-design theme generate</p>
           </div>
           <p className="mt-3 text-sm text-[var(--orbit-muted-foreground)]">
             Answer a few prompts to generate a custom theme JSON, then apply it:
           </p>
           <div className="bg-[var(--orbit-muted)] rounded-md p-4 text-sm font-mono mt-2">
-            <p>npx orbit-ui theme apply orbit-theme-my-theme.json</p>
+            <p>npx orbit-design theme apply orbit-theme-my-theme.json</p>
           </div>
         </div>
       </div>

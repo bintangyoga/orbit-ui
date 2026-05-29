@@ -19,8 +19,8 @@ export default function DocsPage() {
 
         <h2 className="text-2xl font-semibold pt-4">Quick Start</h2>
         <div className="bg-[var(--orbit-muted)] rounded-md p-4 text-sm font-mono text-[var(--orbit-foreground)]">
-          <p>$ npx orbit-ui init</p>
-          <p>$ npx orbit-ui add button</p>
+          <p>$ npx orbit-design init</p>
+          <p>$ npx orbit-design add button</p>
         </div>
       </div>
     </div>
