@@ -1,0 +1,38 @@
+{
+  "name": "ocean-night",
+  "colors": {
+    "background": "#0b0e17",
+    "foreground": "#e8eaf6",
+    "card": "#111827",
+    "card-foreground": "#e8eaf6",
+    "popover": "#111827",
+    "popover-foreground": "#e8eaf6",
+    "primary": "#06b6d4",
+    "primary-foreground": "#ffffff",
+    "secondary": "#1e293b",
+    "secondary-foreground": "#e8eaf6",
+    "muted": "#1e293b",
+    "muted-foreground": "#64748b",
+    "accent": "#22d3ee",
+    "accent-foreground": "#ffffff",
+    "destructive": "#ef4444",
+    "destructive-foreground": "#ffffff",
+    "border": "#1e293b",
+    "input": "#1e293b",
+    "ring": "#06b6d4"
+  },
+  "gradient": {
+    "gradient": "#06b6d4",
+    "gradient-highlight": "#22d3ee",
+    "gradient-shadow": "#0891b2",
+    "gradient-opacity": 0.5,
+    "glow-intensity": 0.35
+  },
+  "depth": {
+    "highlight": "#ffffff",
+    "highlight-opacity": 0.06,
+    "inner-shadow": 0.25,
+    "inner-gradient-direction": "to-bottom"
+  },
+  "radius": "0.75rem"
+}

@@ -1,0 +1,38 @@
+{
+  "name": "emerald-dream",
+  "colors": {
+    "background": "#0a1a0f",
+    "foreground": "#ecfdf5",
+    "card": "#0f2a1a",
+    "card-foreground": "#ecfdf5",
+    "popover": "#0f2a1a",
+    "popover-foreground": "#ecfdf5",
+    "primary": "#10b981",
+    "primary-foreground": "#ffffff",
+    "secondary": "#1a2a20",
+    "secondary-foreground": "#ecfdf5",
+    "muted": "#1a2a20",
+    "muted-foreground": "#6b8a78",
+    "accent": "#34d399",
+    "accent-foreground": "#ffffff",
+    "destructive": "#ef4444",
+    "destructive-foreground": "#ffffff",
+    "border": "#1e3a28",
+    "input": "#1e3a28",
+    "ring": "#10b981"
+  },
+  "gradient": {
+    "gradient": "#10b981",
+    "gradient-highlight": "#34d399",
+    "gradient-shadow": "#059669",
+    "gradient-opacity": 0.5,
+    "glow-intensity": 0.3
+  },
+  "depth": {
+    "highlight": "#ffffff",
+    "highlight-opacity": 0.06,
+    "inner-shadow": 0.25,
+    "inner-gradient-direction": "to-bottom"
+  },
+  "radius": "0.75rem"
+}

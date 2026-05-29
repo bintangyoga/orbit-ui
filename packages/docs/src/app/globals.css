@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --orbit-background: #ffffff;
+  --orbit-foreground: #0a0a0f;
+  --orbit-card: #f8f8fa;
+  --orbit-card-foreground: #0a0a0f;
+  --orbit-popover: #f8f8fa;
+  --orbit-popover-foreground: #0a0a0f;
+  --orbit-primary: #0090fe;
+  --orbit-primary-foreground: #ffffff;
+  --orbit-secondary: #f0f0f5;
+  --orbit-secondary-foreground: #0a0a0f;
+  --orbit-muted: #f0f0f5;
+  --orbit-muted-foreground: #6b6b80;
+  --orbit-accent: #3dc3fb;
+  --orbit-accent-foreground: #0a0a0f;
+  --orbit-destructive: #ef4444;
+  --orbit-destructive-foreground: #ffffff;
+  --orbit-border: #e0e0ea;
+  --orbit-input: #e0e0ea;
+  --orbit-ring: #0090fe;
+  --orbit-gradient: #0090fe;
+  --orbit-gradient-highlight: #3dc3fb;
+  --orbit-gradient-shadow: #015ecb;
+  --orbit-gradient-opacity: 0.5;
+  --orbit-glow-intensity: 0.2;
+  --orbit-highlight: #ffffff;
+  --orbit-highlight-opacity: 0.7;
+  --orbit-inner-shadow: 0.1;
+  --orbit-inner-gradient-direction: to-bottom;
+  --orbit-radius: 0.75rem;
+}
+
+.dark {
+  --orbit-background: #0a0a0f;
+  --orbit-foreground: #fafafa;
+  --orbit-card: #0f0f18;
+  --orbit-card-foreground: #fafafa;
+  --orbit-popover: #0f0f18;
+  --orbit-popover-foreground: #fafafa;
+  --orbit-primary: #3087ed;
+  --orbit-primary-foreground: #ffffff;
+  --orbit-secondary: #1a1a2e;
+  --orbit-secondary-foreground: #fafafa;
+  --orbit-muted: #16162a;
+  --orbit-muted-foreground: #8888aa;
+  --orbit-accent: #3dc3fb;
+  --orbit-accent-foreground: #ffffff;
+  --orbit-destructive: #ef4444;
+  --orbit-destructive-foreground: #ffffff;
+  --orbit-border: #1e1e3a;
+  --orbit-input: #1e1e3a;
+  --orbit-ring: #3087ed;
+  --orbit-gradient: #3087ed;
+  --orbit-gradient-highlight: #3dc3fb;
+  --orbit-gradient-shadow: #015ecb;
+  --orbit-gradient-opacity: 0.6;
+  --orbit-glow-intensity: 0.3;
+  --orbit-highlight: #ffffff;
+  --orbit-highlight-opacity: 0.08;
+  --orbit-inner-shadow: 0.3;
+  --orbit-inner-gradient-direction: to-bottom;
+  --orbit-radius: 0.75rem;
+}
+
+* {
+  border-color: var(--orbit-border);
+}
+
+body {
+  background: var(--orbit-background);
+  color: var(--orbit-foreground);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--orbit-muted-foreground);
+  border-radius: 3px;
+}
