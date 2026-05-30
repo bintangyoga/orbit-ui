@@ -1,6 +1,8 @@
 # orbit-design
 
-Beautiful glassmorphic React component library — gradient depth effects, custom themes, copy-paste like shadcn.
+React components inspired by iOS — glassmorphic, mobile-first, beautiful out of the box.
+
+orbit-design helps you build stunning websites fast. Every component looks and feels like modern iOS — smooth gradients, frosted glass, and thoughtful mobile UX. No design skills needed.
 
 ```bash
 npx orbit-design init
@@ -9,33 +11,77 @@ npx orbit-design add button
 
 **Docs:** https://orbitdesign.vercel.app
 
-## Features
+## Why orbit-design?
 
-- Glass gradient effects — signature gradient shine line across components
-- Inner depth — subtle vertical gradients creating 3D depth perception
-- Dark + Light themes — beautiful out of the box
-- Fully customizable — create your own themes with JSON config
-- Tailwind + CVA — built on class-variance-authority + Tailwind CSS
-- Copy-paste model — you own the code, no locked-in dependencies
-- Accessible — built on Radix UI primitives
+- **iOS-inspired design** — glassmorphic gradients, depth effects, frosted glass. The kind of UI your users already love.
+- **Mobile-first UX** — every component is built for touch screens first. Responsive sheets that become drawers on mobile, proper tap targets, smooth transitions.
+- **Beautiful by default** — no tweaking needed. Dark theme, glass gradients, and subtle depth effects work out of the box.
+- **Copy-paste model** — components are copied into your project. You own the code. Zero lock-in.
+- **Fully customizable** — create your own themes with a simple JSON file. Change colors, gradients, glow, border radius.
+- **Accessible** — built on Radix UI primitives for keyboard nav, screen readers, and focus management.
 
 ## Quick Start
 
 ```bash
+# Initialize in your project
 npx orbit-design init
+
+# Add components
 npx orbit-design add button
+npx orbit-design add responsive-sheet
 npx orbit-design add --all
 ```
 
-## Theme Customization
+That's it. No config hell, no setup wizards. Two commands and you're rolling.
 
-```bash
-npx orbit-design theme generate
-npx orbit-design theme apply orbit-theme-my-custom-theme.json
-npx orbit-design theme show
+## Components
+
+### Button
+
+6 variants with the signature glass gradient effect:
+
+```tsx
+import { Button } from "@/components/orbit-ui/button";
+
+<Button>Default</Button>
+<Button variant="secondary">Secondary</Button>
+<Button variant="outline">Outline</Button>
+<Button variant="ghost">Ghost</Button>
+<Button variant="destructive">Delete</Button>
+<Button variant="glass">Glass</Button>
 ```
 
-### Custom Theme JSON
+Sizes: `sm`, `default`, `lg`, `icon`
+
+### ResponsiveSheet
+
+A sheet that adapts to the screen — **bottom drawer on mobile**, **centered dialog on desktop**. Pure CSS, no JS media queries.
+
+```tsx
+import { ResponsiveSheet } from "@/components/orbit-ui/responsive-sheet";
+
+<ResponsiveSheet>
+  <ResponsiveSheet.Trigger>Open</ResponsiveSheet.Trigger>
+  <ResponsiveSheet.Content>
+    <ResponsiveSheet.Header>
+      <ResponsiveSheet.Title>Title</ResponsiveSheet.Title>
+    </ResponsiveSheet.Header>
+    <p>Content here</p>
+  </ResponsiveSheet.Content>
+</ResponsiveSheet>
+```
+
+## Theming
+
+Create a custom theme with a JSON file:
+
+```bash
+npx orbit-design theme generate     # Interactive theme creator
+npx orbit-design theme apply my-theme.json
+npx orbit-design theme show          # Show current CSS variables
+```
+
+### Theme JSON
 
 ```json
 {
@@ -58,71 +104,51 @@ npx orbit-design theme show
   "depth": {
     "highlight": "#ffffff",
     "highlight-opacity": 0.08,
-    "inner-shadow": 0.3,
-    "inner-gradient-direction": "to-bottom"
+    "inner-shadow": 0.3
   },
   "radius": "0.75rem"
 }
 ```
 
-### Gradient Settings
+### Gradient Controls
 
-- **gradient** — main gradient color used for the glass shine line
-- **gradient-highlight** — lighter version for reflections
-- **gradient-shadow** — darker version for depth and glow
-- **gradient-opacity** — visibility of the shine line (0-1)
-- **glow-intensity** — outer glow shadow strength (0-1)
+- **gradient** — main gradient color for the glass shine line
+- **gradient-opacity** — shine line visibility (0 = invisible, 1 = full)
+- **glow-intensity** — outer glow strength (0 = no glow, 1 = strong)
+- **highlight-opacity** — top edge brightness, simulates glass reflection
 
-## Button Variants
+### Built-in Presets
 
-```tsx
-import { Button } from "@/components/orbit-ui/button";
-
-<Button>Click me</Button>
-<Button variant="secondary">Secondary</Button>
-<Button variant="outline">Outline</Button>
-<Button variant="ghost">Ghost</Button>
-<Button variant="destructive">Delete</Button>
-<Button variant="glass">Glass</Button>
-```
-
-## Included Theme Presets
-
-- **Orbit Dark** — cyan-blue on dark
+- **Orbit Dark** — cyan-blue on dark (default)
 - **Orbit Light** — blue on white
 - **Ocean Night** — teal on deep blue
 - **Sunset Ember** — orange on warm dark
 - **Emerald Dream** — emerald on dark green
 
-## Architecture
-
-```
-orbit-ui/
-├── packages/
-│   ├── cli/                 ← CLI tool (published as orbit-design on npm)
-│   └── docs/                ← Documentation website (Next.js)
-├── templates/               ← Theme presets (JSON)
-└── README.md
-```
-
 ## How It Works
 
-Like shadcn/ui, orbit-design is **not a dependency**. When you run `orbit-design add button`:
+Like shadcn/ui, orbit-design is **not a dependency**. When you run `add button`:
 
 1. Reads your `orbit-ui.json` config
 2. Fetches the component from the registry
-3. Resolves dependencies (recursively)
-4. Writes the actual `.tsx` files to your project
-5. Installs any required npm packages
+3. Resolves dependencies (button → utils → npm packages)
+4. Writes `.tsx` files directly into your project
+5. Installs npm packages (auto-detects npm/yarn/pnpm/bun)
 
 You own the code. Modify it however you want.
+
+## Requirements
+
+- React 18+
+- Tailwind CSS 3+
+- TypeScript (recommended)
 
 ## Tech Stack
 
 - **CLI**: Commander.js + TypeScript
 - **Components**: React + Radix UI + CVA
 - **Styling**: Tailwind CSS + CSS Variables
-- **Theme**: JSON config → CSS variables
+- **Themes**: JSON config → CSS variables
 
 ## License
 

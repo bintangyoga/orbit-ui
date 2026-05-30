@@ -9,16 +9,21 @@ export default function Home() {
             orbit-ui
           </h1>
           <p className="text-lg text-[var(--orbit-muted-foreground)]">
-            Beautiful glassmorphic React components with gradient depth effects.
-            Fully customizable themes. Copy-paste like shadcn.
+            React components inspired by iOS. Glassmorphic, mobile-first, beautiful out of the box.
           </p>
         </div>
 
         <div className="flex items-center justify-center gap-4 flex-wrap">
-          <Button size="lg">Get Started</Button>
-          <Button variant="outline" size="lg">
-            GitHub
-          </Button>
+          <a href="/docs/installation">
+            <Button size="lg">
+              Get Started
+            </Button>
+          </a>
+          <a href="https://github.com/bintangyoga/orbit-design" target="_blank">
+            <Button variant="outline" size="lg">
+              GitHub
+            </Button>
+          </a>
           <Button variant="glass" size="lg">
             ✨ Glass
           </Button>

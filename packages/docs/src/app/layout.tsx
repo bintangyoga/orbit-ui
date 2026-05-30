@@ -4,8 +4,8 @@ import { Sidebar } from "@/components/sidebar";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "orbit-ui — Glassmorphic React Components",
-  description: "Beautiful, glassmorphic React component library with customizable gradient effects",
+  title: "orbit-design — iOS-inspired React Components",
+  description: "Beautiful React components inspired by iOS. Glassmorphic, mobile-first, customizable themes. Copy-paste into your project.",
 };
 
 export default function RootLayout({
