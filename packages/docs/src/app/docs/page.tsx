@@ -1,7 +1,7 @@
 export default function DocsPage() {
   return (
     <div className="p-8 max-w-3xl">
-      <h1 className="text-4xl font-bold tracking-tight mb-4">orbit-ui</h1>
+      <h1 className="text-4xl font-bold tracking-tight mb-4">Orbit Design</h1>
       <p className="text-lg text-[var(--orbit-muted-foreground)] mb-8">
         A collection of beautiful, glassmorphic React components you can copy and paste
         into your apps. Fully customizable with your own themes.

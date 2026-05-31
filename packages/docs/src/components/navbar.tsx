@@ -19,7 +19,7 @@ export function Navbar() {
             <span className="text-white text-sm font-bold">O</span>
           </div>
           <span className="text-lg font-semibold text-[var(--orbit-foreground)]">
-            orbit-ui
+            Orbit Design
           </span>
         </a>
 

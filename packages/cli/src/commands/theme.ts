@@ -15,12 +15,12 @@ import { OrbitUIConfig } from "../config";
 
 export function themeCommand(): Command {
   return new Command("theme")
-    .description("Manage and customize your orbit-ui theme")
+    .description("Manage and customize your Orbit Design theme")
     .addCommand(
       new Command("generate")
         .description("Generate a new theme from prompts")
         .action(async () => {
-          console.log(chalk.cyan("\n🎨 Create your custom orbit-ui theme\n"));
+          console.log(chalk.cyan("\n🎨 Create your custom Orbit Design theme\n"));
 
           const answers = await inquirer.prompt([
             {
@@ -143,7 +143,7 @@ export function themeCommand(): Command {
             try {
               config = await fs.readJSON("orbit-ui.json");
             } catch {
-              spinner.fail(chalk.red("orbit-ui is not initialized."));
+              spinner.fail(chalk.red("Orbit Design is not initialized."));
               console.log(chalk.gray("  Run ") + chalk.cyan("npx orbit-design init") + chalk.gray(" first."));
               process.exit(1);
             }
@@ -195,17 +195,17 @@ export function themeCommand(): Command {
             const vars = css.match(varRegex);
 
             if (vars) {
-              console.log(chalk.cyan("\n🎨 Current orbit-ui theme:\n"));
+              console.log(chalk.cyan("\n🎨 Current Orbit Design theme:\n"));
               for (const v of vars) {
                 const [name, value] = v.split(":").map((s) => s.trim().replace(";", ""));
                 console.log(`  ${chalk.bold(name)}: ${chalk.hex(value?.replace("#", "") || "ffffff")(value || "")} ${chalk.gray(value)}`);
               }
               console.log();
             } else {
-              console.log(chalk.yellow("No orbit-ui theme variables found."));
+              console.log(chalk.yellow("No Orbit Design theme variables found."));
             }
           } catch {
-            console.error(chalk.red("orbit-ui is not initialized."));
+            console.error(chalk.red("Orbit Design is not initialized."));
           }
         })
     );

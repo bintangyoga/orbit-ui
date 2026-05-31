@@ -6,7 +6,7 @@ export default function Home() {
       <div className="max-w-2xl text-center space-y-8">
         <div className="space-y-4">
           <h1 className="text-5xl font-bold tracking-tight text-[var(--orbit-foreground)]">
-            orbit-ui
+            Orbit Design
           </h1>
           <p className="text-lg text-[var(--orbit-muted-foreground)]">
             Beautiful glassmorphic React components with gradient depth effects.

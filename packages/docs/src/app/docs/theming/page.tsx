@@ -3,7 +3,7 @@ export default function ThemingPage() {
     <div className="p-8 max-w-3xl">
       <h1 className="text-4xl font-bold tracking-tight mb-4">Theming</h1>
       <p className="text-lg text-[var(--orbit-muted-foreground)] mb-8">
-        orbit-ui uses CSS variables for full color customization.
+        Orbit Design uses CSS variables for full color customization.
         Create your own themes with a JSON config file.
       </p>
 

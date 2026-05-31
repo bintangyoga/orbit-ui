@@ -4,12 +4,12 @@ import { getRegistry } from "../registry/fetch";
 
 export function listCommand(): Command {
   return new Command("list")
-    .description("List all available orbit-ui components")
+    .description("List all available Orbit Design components")
     .action(async () => {
       try {
         const registry = await getRegistry();
 
-        console.log(chalk.cyan("\n✨ Available orbit-ui components:\n"));
+        console.log(chalk.cyan("\n✨ Available Orbit Design components:\n"));
 
         const items = Array.from(registry.values());
 

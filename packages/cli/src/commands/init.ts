@@ -10,10 +10,10 @@ import { generateCNUtil } from "../utils/cn";
 
 export function initCommand(): Command {
   return new Command("init")
-    .description("Initialize orbit-ui in your project")
+    .description("Initialize Orbit Design in your project")
     .option("-y, --yes", "Skip prompts, use defaults")
     .action(async (options) => {
-      console.log(chalk.cyan("\n✨ Welcome to orbit-ui!\n"));
+      console.log(chalk.cyan("\n✨ Welcome to Orbit Design!\n"));
 
       let config: OrbitUIConfig;
 
@@ -78,7 +78,7 @@ export function initCommand(): Command {
         };
       }
 
-      const spinner = ora("Setting up orbit-ui...").start();
+      const spinner = ora("Setting up Orbit Design...").start();
 
       try {
         // 1. Write config file
@@ -110,7 +110,7 @@ export function initCommand(): Command {
         await fs.ensureDir(path.dirname(utilsPath));
         await fs.writeFile(utilsPath, generateCNUtil());
 
-        spinner.succeed(chalk.green("orbit-ui initialized! ✨"));
+        spinner.succeed(chalk.green("Orbit Design initialized! ✨"));
         console.log();
         console.log(chalk.gray("  Next steps:"));
         console.log(chalk.gray("  1. Install dependencies:  ") + chalk.cyan("npm install clsx tailwind-merge class-variance-authority"));

@@ -9,7 +9,7 @@ import { themeCommand } from "./commands/theme";
 const program = new Command();
 
 program
-  .name("orbit-ui")
+  .name("orbit-design")
   .description("✨ A beautiful glassmorphic React component library CLI")
   .version("0.1.0");
 

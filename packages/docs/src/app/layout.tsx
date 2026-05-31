@@ -4,7 +4,7 @@ import { Sidebar } from "@/components/sidebar";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "orbit-ui — Glassmorphic React Components",
+  title: "Orbit Design — Glassmorphic React Components",
   description: "Beautiful, glassmorphic React component library with customizable gradient effects",
 };
 
