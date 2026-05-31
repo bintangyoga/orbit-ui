@@ -6,6 +6,7 @@ import ora from "ora";
 import { OrbitUIConfig } from "../config";
 import { RegistryItem, resolveDependencies } from "../registry";
 import { getRegistry } from "../registry/fetch";
+import { detectPackageManager, installDeps } from "../utils/package-manager";
 
 export function addCommand(): Command {
   return new Command("add")
@@ -14,7 +15,6 @@ export function addCommand(): Command {
     .option("-a, --all", "Add all available components")
     .option("-o, --overwrite", "Overwrite existing files")
     .action(async (componentNames: string[], options) => {
-      // Load config
       let config: OrbitUIConfig;
       try {
         config = await fs.readJSON("orbit-ui.json");
@@ -24,12 +24,12 @@ export function addCommand(): Command {
         process.exit(1);
       }
 
+      const pm = detectPackageManager();
       const spinner = ora("Loading registry...").start();
 
       try {
         const registry = await getRegistry();
 
-        // Determine which components to install
         let targets: string[];
 
         if (options.all) {
@@ -37,7 +37,6 @@ export function addCommand(): Command {
         } else if (componentNames.length > 0) {
           targets = componentNames;
         } else {
-          // Interactive selection
           spinner.stop();
           const available = Array.from(registry.keys());
           const { selected } = await import("inquirer").then((m) =>
@@ -64,7 +63,6 @@ export function addCommand(): Command {
           return;
         }
 
-        // Resolve all dependencies
         const resolved = new Set<string>();
         const allItems: RegistryItem[] = [];
 
@@ -76,9 +74,10 @@ export function addCommand(): Command {
           allItems.push(...resolveDependencies(name, registry, resolved));
         }
 
-        // Install each item
         const componentsDir = resolveAliasDir(config.aliases.components);
         const utilsDir = resolveAliasDir(config.aliases.utils);
+
+        const allDeps: string[] = [];
 
         for (const item of allItems) {
           spinner.text = `Adding ${chalk.cyan(item.name)}...`;
@@ -91,7 +90,6 @@ export function addCommand(): Command {
               file.path
             );
 
-            // Check if file exists
             if ((await fs.pathExists(targetPath)) && !options.overwrite) {
               const { overwrite } = await import("inquirer").then((m) =>
                 m.default.prompt([
@@ -113,20 +111,22 @@ export function addCommand(): Command {
             await fs.writeFile(targetPath, file.content);
           }
 
-          // Install npm dependencies
           if (item.dependencies && item.dependencies.length > 0) {
-            spinner.text = `Installing dependencies for ${item.name}...`;
-            const { execSync } = await import("child_process");
-            const deps = item.dependencies.join(" ");
-            execSync(`npm install ${deps}`, { stdio: "pipe" });
+            allDeps.push(...item.dependencies);
           }
+        }
+
+        // Install all deps at once
+        if (allDeps.length > 0) {
+          const uniqueDeps = [...new Set(allDeps)];
+          spinner.text = `Installing dependencies with ${chalk.cyan(pm)}: ${chalk.gray(uniqueDeps.join(", "))}`;
+          installDeps(uniqueDeps);
         }
 
         spinner.succeed(
           chalk.green(`Added ${allItems.length} component(s)! ✨`)
         );
 
-        // Print installed components
         for (const item of allItems) {
           console.log(chalk.gray(`  ✓ ${item.name}`));
         }
