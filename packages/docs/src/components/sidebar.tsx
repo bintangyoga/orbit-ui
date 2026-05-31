@@ -19,6 +19,7 @@ const navItems = [
     title: "Components",
     items: [
       { title: "Button", href: "/docs/components/button" },
+      { title: "ResponsiveSheet", href: "/docs/components/responsive-sheet" },
     ],
   },
 ];

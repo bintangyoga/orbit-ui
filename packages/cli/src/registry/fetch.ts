@@ -1,6 +1,7 @@
 import { RegistryItem } from "../registry";
 import { getButtonRegistry } from "../components/button";
 import { getUtilsRegistry } from "../components/utils";
+import { getResponsiveSheetRegistry } from "../components/responsive-sheet";
 
 /**
  * Fetch the full component registry.
@@ -13,10 +14,7 @@ export async function getRegistry(): Promise<Map<string, RegistryItem>> {
   const components: RegistryItem[] = [
     ...getUtilsRegistry(),
     ...getButtonRegistry(),
-    // Add more components here as the library grows:
-    // ...getCardRegistry(),
-    // ...getInputRegistry(),
-    // ...getDialogRegistry(),
+    ...getResponsiveSheetRegistry(),
   ];
 
   for (const item of components) {
