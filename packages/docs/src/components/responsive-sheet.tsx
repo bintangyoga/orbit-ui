@@ -6,7 +6,6 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { X } from "lucide-react";
 
-// ── Overlay ──
 const ResponsiveSheetOverlay = React.forwardRef<
   React.ComponentRef<typeof DialogPrimitive.Overlay>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
@@ -14,9 +13,9 @@ const ResponsiveSheetOverlay = React.forwardRef<
   <DialogPrimitive.Overlay
     className={cn(
       "fixed inset-0 z-50",
-      "bg-black/60 backdrop-blur-sm",
-      "data-[state=open]:animate-in data-[state=open]:fade-in-0",
-      "data-[state=closed]:animate-out data-[state=closed]:fade-out-0",
+      "bg-black/50 backdrop-blur-[2px]",
+      "data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:duration-300",
+      "data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:duration-200",
       className
     )}
     {...props}
@@ -25,17 +24,16 @@ const ResponsiveSheetOverlay = React.forwardRef<
 ));
 ResponsiveSheetOverlay.displayName = "ResponsiveSheetOverlay";
 
-// ── Content ──
 const responsiveSheetContentVariants = cva(
   [
     "fixed z-50",
     "border border-[var(--orbit-border)]",
-    "rounded-[var(--orbit-radius)]",
     "bg-[var(--orbit-card)]",
     "shadow-xl",
     "focus:outline-none",
-    "data-[state=open]:animate-in data-[state=closed]:animate-out",
-    "data-[state=closed]:duration-200 data-[state=open]:duration-300",
+    "data-[state=open]:animate-in data-[state=open]:duration-300",
+    "data-[state=closed]:animate-out data-[state=closed]:duration-200",
+    "data-[state=open]:ease-out data-[state=closed]:ease-in",
     "orbit-rs-content",
   ].join(" "),
   {
@@ -96,7 +94,6 @@ const ResponsiveSheetContent = React.forwardRef<
 ));
 ResponsiveSheetContent.displayName = "ResponsiveSheetContent";
 
-// ── Header ──
 const ResponsiveSheetHeader = ({
   className,
   ...props
@@ -106,9 +103,7 @@ const ResponsiveSheetHeader = ({
     {...props}
   />
 );
-ResponsiveSheetHeader.displayName = "ResponsiveSheetHeader";
 
-// ── Footer ──
 const ResponsiveSheetFooter = ({
   className,
   ...props
@@ -121,9 +116,7 @@ const ResponsiveSheetFooter = ({
     {...props}
   />
 );
-ResponsiveSheetFooter.displayName = "ResponsiveSheetFooter";
 
-// ── Title ──
 const ResponsiveSheetTitle = React.forwardRef<
   React.ComponentRef<typeof DialogPrimitive.Title>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
@@ -139,7 +132,6 @@ const ResponsiveSheetTitle = React.forwardRef<
 ));
 ResponsiveSheetTitle.displayName = "ResponsiveSheetTitle";
 
-// ── Description ──
 const ResponsiveSheetDescription = React.forwardRef<
   React.ComponentRef<typeof DialogPrimitive.Description>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
@@ -152,7 +144,6 @@ const ResponsiveSheetDescription = React.forwardRef<
 ));
 ResponsiveSheetDescription.displayName = "ResponsiveSheetDescription";
 
-// Root & Trigger & Close
 const ResponsiveSheet = DialogPrimitive.Root;
 const ResponsiveSheetTrigger = DialogPrimitive.Trigger;
 const ResponsiveSheetClose = DialogPrimitive.Close;

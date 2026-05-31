@@ -90,6 +90,7 @@ body {
 }
 
 /* ── ResponsiveSheet: responsive positioning ── */
+
 /* Mobile: bottom drawer */
 .orbit-rs-content {
   bottom: 0;
@@ -100,28 +101,60 @@ body {
   max-height: 85vh;
   border-radius: var(--orbit-radius) var(--orbit-radius) 0 0;
   overflow-y: auto;
+  overscroll-behavior: contain;
+  /* Slide up from bottom */
   --tw-enter-translate-y: 100%;
   --tw-exit-translate-y: 100%;
+  --tw-enter-opacity: 1;
+  --tw-exit-opacity: 1;
+  --tw-enter-scale: 1;
+  --tw-exit-scale: 1;
 }
 
-/* Desktop: centered dialog */
+/* Desktop: centered dialog — uses inset instead of transform to avoid animation conflicts */
 @media (min-width: 768px) {
   .orbit-rs-content {
+    /* Inset-based centering (no transform needed) */
+    inset: 0;
     bottom: auto;
-    left: 50%;
+    left: auto;
     right: auto;
-    top: 50%;
+    top: auto;
     width: auto;
     min-width: 400px;
     max-width: 540px;
     max-height: 85vh;
+    margin: auto;
     border-radius: var(--orbit-radius);
-    transform: translate(-50%, -50%);
+    /* Scale + fade on desktop */
     --tw-enter-translate-y: 0;
     --tw-exit-translate-y: 0;
-    --tw-enter-scale: 0.95;
-    --tw-exit-scale: 0.95;
+    --tw-enter-scale: 0.96;
+    --tw-exit-scale: 0.96;
     --tw-enter-opacity: 0;
     --tw-exit-opacity: 0;
   }
+}
+
+/* Smooth iOS-like spring animation */
+@keyframes orbit-enter {
+  from {
+    opacity: var(--tw-enter-opacity, 1);
+    transform: translate(var(--tw-enter-translate-x, 0), var(--tw-enter-translate-y, 0)) scale(var(--tw-enter-scale, 1));
+  }
+}
+
+@keyframes orbit-exit {
+  to {
+    opacity: var(--tw-exit-opacity, 1);
+    transform: translate(var(--tw-exit-translate-x, 0), var(--tw-exit-translate-y, 0)) scale(var(--tw-exit-scale, 1));
+  }
+}
+
+.orbit-rs-content[data-state="open"] {
+  animation: orbit-enter 300ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.orbit-rs-content[data-state="closed"] {
+  animation: orbit-exit 200ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
